@@ -23,6 +23,13 @@ export function createCourseSuccess(course) {
   };
 }
 
+export function deleteCourseOptimistic(course) {
+  return {
+    type: types.DELETE_COURSE_OPTIMISTIC,
+    course: course,
+  };
+}
+
 // Thunk(s).
 export function loadCourses() {
   return function (dispatch) {
@@ -53,5 +60,14 @@ export function saveCourse(course) {
         dispatch(apiCallError(error));
         throw error;
       });
+  };
+}
+
+export function deleteCourse(course) {
+  return function (dispatch) {
+    // Doing an optimistic delete, so no need to dispatch begin/end api call action.
+    // Shown in course video tut but I don't like optimistic deletes.
+    dispatch(deleteCourseOptimistic(course));
+    return courseApi.deleteCourse(course.id);
   };
 }
