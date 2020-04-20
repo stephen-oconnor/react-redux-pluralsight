@@ -8,7 +8,8 @@ import { newCourse } from "../../../tools/mockData";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 
-function ManageCoursePage({
+// Export unconnected component for testing.
+export function ManageCoursePage({
   courses,
   authors,
   loadCourses,
@@ -139,4 +140,5 @@ const mapDispatchToProps = {
   saveCourse: courseActions.saveCourse,
 };
 
+// Export connected component as default.
 export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
