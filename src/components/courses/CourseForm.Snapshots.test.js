@@ -3,7 +3,7 @@ import CourseForm from "./CourseForm";
 import renderer from "react-test-renderer";
 import { courses, authors } from "../../../tools/mockData";
 
-it("Sets submit button label to 'Saving...' when saving is true", () => {
+it("sets submit button label to 'Saving...' when saving is true", () => {
   const tree = renderer.create(
     <CourseForm
       course={courses[0]}
@@ -18,7 +18,7 @@ it("Sets submit button label to 'Saving...' when saving is true", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("Sets submit button label to 'Save' when saving is false", () => {
+it("sets submit button label to 'Save' when saving is false", () => {
   const tree = renderer.create(
     <CourseForm
       course={courses[0]}
